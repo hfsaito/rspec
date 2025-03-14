@@ -52,7 +52,7 @@ module Spec
       )
       attr_reader :colour, :differ_class, :files, :examples, :example_groups
       attr_writer :drb_port
-      
+
       def initialize(error_stream, output_stream)
         @error_stream = error_stream
         @output_stream = output_stream
@@ -108,7 +108,7 @@ module Spec
         # project_path project:
         #   http://github.com/smtlaissezfaire/project_path
         Pathname(File.expand_path('.')).ascend do |path|
-          if File.exists?(File.join(path, "spec"))
+          if File.exist?(File.join(path, "spec"))
             return path
           end
         end
@@ -294,7 +294,7 @@ module Spec
       def drb_port
         @drb_port.to_i if defined?(@drb_port)
       end
-      
+
     protected
 
       def define_predicate_matchers

@@ -39,10 +39,10 @@ namespace :spec do
     t.rcov_opts = ['--exclude', "features,kernel,load-diff-lcs\.rb,instance_exec\.rb,lib/spec.rb,lib/spec/runner.rb,^spec/*,bin/spec,examples,/gems,/Library/Ruby,\.autotest,#{ENV['GEM_HOME']}"]
     t.rcov_opts << '--sort coverage --text-summary --aggregate coverage.data'
   end
-  
+
   desc "Run files listed in spec/spec_files.txt"
   Spec::Rake::SpecTask.new(:focus) do |t|
-    if File.exists?('spec/spec_files.txt')
+    if File.exist?('spec/spec_files.txt')
       t.spec_files = File.readlines('spec/spec_files.txt').collect{|f| f.chomp}
     end
   end
